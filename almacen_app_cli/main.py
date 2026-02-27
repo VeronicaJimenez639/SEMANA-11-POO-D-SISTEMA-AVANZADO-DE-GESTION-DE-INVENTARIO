@@ -127,3 +127,14 @@ def main():
                 print("Producto eliminado.")
             else:
                 print("No existe producto con ese ID.")
+
+        # -------- ACTUALIZAR PRODUCTO --------
+        elif opcion == 3:
+            producto_id = leer_int("ID: ", minimo=1)
+            nueva_cantidad = leer_int("Nueva cantidad: ", minimo=0)
+            nuevo_precio = leer_float("Nuevo precio: ", minimo=0.0)
+
+            if inventario.actualizar_producto(producto_id, nueva_cantidad, nuevo_precio):
+                print("Producto actualizado.")
+            else:
+                print("No existe producto con ese ID.")
