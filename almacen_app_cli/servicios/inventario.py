@@ -74,3 +74,15 @@ class Inventario:
 
         except Exception as e:
             print(f"Error al cargar archivo: {e}")
+
+    # Guarda todos los productos actuales en el archivo
+    def guardar_en_archivo(self) -> None:
+        try:
+            self.asegurar_archivo()
+
+            with open(self.ruta_archivo, "w", encoding="utf-8") as f:
+                for p in self.__productos:
+                    f.write(p.to_linea() + "\n")
+
+        except Exception as e:
+            print(f"Error al guardar archivo: {e}")
