@@ -99,3 +99,24 @@ def main():
     while True:
         mostrar_menu()
         opcion = leer_int("Elige opción: ", minimo=1)
+
+        # -------- AÑADIR PRODUCTO --------
+        if opcion == 1:
+            try:
+                # Se crea el objeto Producto con datos validados
+                producto = Producto(
+                    leer_int("ID: ", minimo=1),
+                    leer_texto("Nombre: "),
+                    leer_int("Cantidad: ", minimo=0),
+                    leer_float("Precio: ", minimo=0.0)
+                )
+
+                # Se delega la lógica al Inventario
+                if inventario.agregar_producto(producto):
+                    print("Producto agregado.")
+                else:
+                    print("El ID ya existe.")
+
+            except ValueError as e:
+                # Captura errores de validación del modelo
+                print(f"Error: {e}")
