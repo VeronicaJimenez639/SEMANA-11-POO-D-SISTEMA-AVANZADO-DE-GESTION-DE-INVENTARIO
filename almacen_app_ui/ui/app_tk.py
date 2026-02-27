@@ -236,3 +236,15 @@ class AppTk:
         """Al cerrar ventana: guarda y termina la app."""
         self.servicio.guardar_en_archivo()
         self.root.destroy()
+
+    # =====================
+    # BÚSQUEDA
+    # =====================
+    def on_buscar(self):
+        """Filtra la tabla por coincidencia parcial de nombre."""
+        texto = self.var_buscar.get().strip()
+        encontrados = self.servicio.buscar_por_nombre(texto)
+        self._pintar(encontrados)
+
+        if texto and not encontrados:
+            messagebox.showinfo("Resultado", "No se encontraron productos con ese nombre.")
