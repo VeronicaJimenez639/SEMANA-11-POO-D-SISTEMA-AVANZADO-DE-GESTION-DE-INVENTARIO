@@ -109,3 +109,25 @@ class AppTk:
 
         # Evento: al cerrar ventana, guardar
         self.root.protocol("WM_DELETE_WINDOW", self.on_cerrar)
+
+    # =====================
+    # UTILIDADES
+    # =====================
+    def _pintar(self, productos):
+        """Pinta una lista de productos en la tabla."""
+        # 1) Limpiar filas anteriores
+        for item in self.tree.get_children():
+            self.tree.delete(item)
+
+        # 2) Insertar filas nuevas
+        for p in productos:
+            self.tree.insert("", "end", values=(
+                p.get_id(),
+                p.get_nombre(),
+                p.get_cantidad(),
+                f"{p.get_precio():.2f}"
+            ))
+
+    def refrescar_tabla(self):
+        """Muestra todos los productos."""
+        self._pintar(self.servicio.productos)
