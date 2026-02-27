@@ -138,3 +138,8 @@ def main():
                 print("Producto actualizado.")
             else:
                 print("No existe producto con ese ID.")
+
+        # -------- BUSCAR POR ID --------
+        elif opcion == 4:
+            producto = inventario.buscar_por_id(leer_int("ID: ", minimo=1))
+            print(producto if producto else "No encontrado.")
