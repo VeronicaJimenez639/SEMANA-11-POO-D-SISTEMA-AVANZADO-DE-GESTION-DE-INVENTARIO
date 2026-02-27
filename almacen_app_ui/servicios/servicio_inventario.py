@@ -68,3 +68,7 @@ class ServicioInventario:
     def guardar_en_archivo(self):
         """Fuerza el guardado en el archivo (útil para botón Guardar o al cerrar)."""
         self.inventario.guardar_en_archivo()
+
+    def buscar_por_nombre(self, texto):
+        """Devuelve productos que coincidan parcialmente con el texto."""
+        return self.inventario.buscar_por_nombre(texto)
