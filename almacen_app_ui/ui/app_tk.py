@@ -54,3 +54,15 @@ class AppTk:
 
         ttk.Label(frm, text="Precio").grid(row=1, column=2, padx=6, pady=6, sticky="w")
         ttk.Entry(frm, textvariable=self.var_precio, width=30).grid(row=1, column=3, padx=6, pady=6)
+
+        # =====================
+        # BUSCAR POR NOMBRE
+        # =====================
+        buscar_frame = ttk.Frame(self.root)
+        buscar_frame.pack(fill="x", padx=10, pady=0)
+
+        self.var_buscar = tk.StringVar()
+        ttk.Label(buscar_frame, text="Buscar por nombre:").pack(side="left", padx=5)
+        ttk.Entry(buscar_frame, textvariable=self.var_buscar, width=35).pack(side="left", padx=5)
+        ttk.Button(buscar_frame, text="Buscar", command=self.on_buscar).pack(side="left", padx=5)
+        ttk.Button(buscar_frame, text="Ver todo", command=self.refrescar_tabla).pack(side="left", padx=5)
