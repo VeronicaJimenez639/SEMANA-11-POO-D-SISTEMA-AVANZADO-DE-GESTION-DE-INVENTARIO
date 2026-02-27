@@ -96,3 +96,14 @@ class Inventario:
         self.__productos.append(producto)
         self.guardar_en_archivo()
         return True
+    
+    # Elimina un producto por ID
+    def eliminar_producto(self, producto_id: int) -> bool:
+        indice = self._buscar_indice_por_id(producto_id)
+
+        if indice == -1:
+            return False
+
+        self.__productos.pop(indice)
+        self.guardar_en_archivo()
+        return True
