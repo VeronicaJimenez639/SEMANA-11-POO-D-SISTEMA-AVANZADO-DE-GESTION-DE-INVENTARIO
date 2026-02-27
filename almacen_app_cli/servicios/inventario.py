@@ -86,3 +86,13 @@ class Inventario:
 
         except Exception as e:
             print(f"Error al guardar archivo: {e}")
+
+    # -------- CRUD --------
+    # Agrega un producto si el ID no existe
+    def agregar_producto(self, producto: Producto) -> bool:
+        if self._buscar_indice_por_id(producto.get_id()) != -1:
+            return False
+
+        self.__productos.append(producto)
+        self.guardar_en_archivo()
+        return True
