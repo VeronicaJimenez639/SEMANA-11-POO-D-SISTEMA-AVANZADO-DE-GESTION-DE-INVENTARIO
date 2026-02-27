@@ -174,3 +174,21 @@ class AppTk:
         self.var_nombre.set(values[1])
         self.var_cantidad.set(values[2])
         self.var_precio.set(values[3])
+
+    # =====================
+    # EVENTOS (CRUD)
+    # =====================
+    def on_agregar(self):
+        """Evento botón Agregar."""
+        datos = self.leer_formulario()
+        if not datos:
+            return
+        id_p, nombre, cantidad, precio = datos
+
+        ok, msg = self.servicio.agregar_producto_gui(id_p, nombre, cantidad, precio)
+        if ok:
+            self.refrescar_tabla()
+            self.on_limpiar()
+            messagebox.showinfo("OK", msg)
+        else:
+            messagebox.showwarning("Atención", msg)
