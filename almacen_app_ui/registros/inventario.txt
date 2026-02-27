@@ -1,0 +1,4 @@
+1|blusa|12|14.5
+2|pantalon|50|15.6
+3|medias|100|1.5
+4|zapatos|20|25.0
