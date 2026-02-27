@@ -100,3 +100,12 @@ class AppTk:
         self.tree.column("precio", width=140, anchor="e")
 
         self.tree.pack(fill="both", expand=True, padx=8, pady=8)
+
+        # Evento: al seleccionar una fila, llenar el formulario
+        self.tree.bind("<<TreeviewSelect>>", self.on_select_row)
+
+        # Carga inicial de tabla
+        self.refrescar_tabla()
+
+        # Evento: al cerrar ventana, guardar
+        self.root.protocol("WM_DELETE_WINDOW", self.on_cerrar)
