@@ -192,3 +192,17 @@ class AppTk:
             messagebox.showinfo("OK", msg)
         else:
             messagebox.showwarning("Atención", msg)
+
+    def on_actualizar(self):
+        """Evento botón Actualizar."""
+        datos = self.leer_formulario()
+        if not datos:
+            return
+        id_p, nombre, cantidad, precio = datos
+
+        ok, msg = self.servicio.actualizar_producto_gui(id_p, cantidad, precio)
+        if ok:
+            self.refrescar_tabla()
+            messagebox.showinfo("OK", msg)
+        else:
+            messagebox.showwarning("Atención", msg)
