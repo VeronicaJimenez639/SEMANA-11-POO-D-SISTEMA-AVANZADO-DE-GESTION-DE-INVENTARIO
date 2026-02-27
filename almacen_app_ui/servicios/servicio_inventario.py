@@ -56,3 +56,11 @@ class ServicioInventario:
             return (True, "Producto actualizado.") if ok else (False, "No existe producto con ese ID.")
         except Exception as e:
             return False, f"Error: {e}"
+        
+    def eliminar_producto_gui(self, producto_id):
+        """Elimina un producto por ID."""
+        try:
+            ok = self.inventario.eliminar_producto(producto_id)
+            return (True, "Producto eliminado.") if ok else (False, "No existe producto con ese ID.")
+        except Exception as e:
+            return False, f"Error: {e}"
