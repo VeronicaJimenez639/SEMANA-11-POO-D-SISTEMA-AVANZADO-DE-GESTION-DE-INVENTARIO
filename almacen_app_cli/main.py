@@ -154,3 +154,13 @@ def main():
             else:
                 for p in encontrados:
                     print(p)
+
+        # -------- LISTAR INVENTARIO --------
+        elif opcion == 6:
+            productos = inventario.listar_productos()
+
+            if not productos:
+                print("Inventario vacío.")
+            else:
+                for p in productos:
+                    print(p)
