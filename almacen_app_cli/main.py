@@ -143,3 +143,14 @@ def main():
         elif opcion == 4:
             producto = inventario.buscar_por_id(leer_int("ID: ", minimo=1))
             print(producto if producto else "No encontrado.")
+
+        # -------- BUSCAR POR NOMBRE --------
+        elif opcion == 5:
+            texto = leer_texto("Nombre o parte del nombre: ")
+            encontrados = inventario.buscar_por_nombre(texto)
+
+            if not encontrados:
+                print("No se encontraron productos.")
+            else:
+                for p in encontrados:
+                    print(p)
