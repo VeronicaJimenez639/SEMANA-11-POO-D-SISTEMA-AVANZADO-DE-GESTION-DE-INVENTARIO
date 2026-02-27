@@ -107,3 +107,21 @@ class Inventario:
         self.__productos.pop(indice)
         self.guardar_en_archivo()
         return True
+    
+    # Actualiza cantidad y/o precio
+    def actualizar_producto(self, producto_id: int, nueva_cantidad=None, nuevo_precio=None) -> bool:
+        indice = self._buscar_indice_por_id(producto_id)
+
+        if indice == -1:
+            return False
+
+        producto = self.__productos[indice]
+
+        if nueva_cantidad is not None:
+            producto.set_cantidad(nueva_cantidad)
+
+        if nuevo_precio is not None:
+            producto.set_precio(nuevo_precio)
+
+        self.guardar_en_archivo()
+        return True
