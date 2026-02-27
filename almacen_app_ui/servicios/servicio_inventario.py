@@ -44,3 +44,15 @@ class ServicioInventario:
             return (True, "Producto agregado.") if ok else (False, "El ID ya existe.")
         except Exception as e:
             return False, f"Error: {e}"
+        
+    def actualizar_producto_gui(self, producto_id, cantidad=None, precio=None):
+        """Actualiza cantidad y/o precio de un producto.
+
+        - Si el ID no existe -> ok=False
+        - Si los datos son inválidos -> excepción
+        """
+        try:
+            ok = self.inventario.actualizar_producto(producto_id, cantidad, precio)
+            return (True, "Producto actualizado.") if ok else (False, "No existe producto con ese ID.")
+        except Exception as e:
+            return False, f"Error: {e}"
