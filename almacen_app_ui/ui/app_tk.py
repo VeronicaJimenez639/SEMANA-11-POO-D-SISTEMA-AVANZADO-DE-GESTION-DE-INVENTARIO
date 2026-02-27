@@ -66,3 +66,15 @@ class AppTk:
         ttk.Entry(buscar_frame, textvariable=self.var_buscar, width=35).pack(side="left", padx=5)
         ttk.Button(buscar_frame, text="Buscar", command=self.on_buscar).pack(side="left", padx=5)
         ttk.Button(buscar_frame, text="Ver todo", command=self.refrescar_tabla).pack(side="left", padx=5)
+
+        # =====================
+        # BOTONES CRUD
+        # =====================
+        btns = ttk.Frame(self.root)
+        btns.pack(fill="x", padx=10, pady=8)
+
+        ttk.Button(btns, text="Agregar", command=self.on_agregar).pack(side="left", padx=5)
+        ttk.Button(btns, text="Actualizar", command=self.on_actualizar).pack(side="left", padx=5)
+        ttk.Button(btns, text="Eliminar", command=self.on_eliminar).pack(side="left", padx=5)
+        ttk.Button(btns, text="Limpiar", command=self.on_limpiar).pack(side="left", padx=5)
+        ttk.Button(btns, text="Guardar", command=self.on_guardar).pack(side="left", padx=5)
