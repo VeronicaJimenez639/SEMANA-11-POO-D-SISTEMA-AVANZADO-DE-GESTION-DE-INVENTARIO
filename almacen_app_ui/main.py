@@ -23,3 +23,8 @@ def main():
 
     # 3) Crea y ejecuta la interfaz
     app = AppTk(servicio)
+    app.run()
+
+
+if __name__ == "__main__":
+    main()
