@@ -155,3 +155,22 @@ class AppTk:
         except Exception as e:
             messagebox.showerror("Datos inválidos", f"Revisa el formulario.\nDetalle: {e}")
             return None
+        
+    def on_limpiar(self):
+        """Limpia el formulario y deselecciona la tabla."""
+        self.var_id.set("")
+        self.var_nombre.set("")
+        self.var_cantidad.set("")
+        self.var_precio.set("")
+        self.tree.selection_remove(self.tree.selection())
+
+    def on_select_row(self, event):
+        """Cuando el usuario selecciona una fila, se cargan los datos en el formulario."""
+        sel = self.tree.selection()
+        if not sel:
+            return
+        values = self.tree.item(sel[0], "values")
+        self.var_id.set(values[0])
+        self.var_nombre.set(values[1])
+        self.var_cantidad.set(values[2])
+        self.var_precio.set(values[3])
