@@ -27,3 +27,20 @@ class ServicioInventario:
     def productos(self):
         """Devuelve la lista actual de productos (copia) para mostrar en la tabla."""
         return self.inventario.listar_productos()
+    
+    # -----------------
+    # MÉTODOS PARA LA UI
+    # -----------------
+
+    def agregar_producto_gui(self, producto_id, nombre, cantidad, precio):
+        """Agrega un producto desde la UI.
+
+        Recibe datos ya convertidos (id, cantidad int; precio float).
+        Devuelve (True/False, mensaje) para que la UI muestre el resultado.
+        """
+        try:
+            p = Producto(producto_id, nombre, cantidad, precio)
+            ok = self.inventario.agregar_producto(p)
+            return (True, "Producto agregado.") if ok else (False, "El ID ya existe.")
+        except Exception as e:
+            return False, f"Error: {e}"
