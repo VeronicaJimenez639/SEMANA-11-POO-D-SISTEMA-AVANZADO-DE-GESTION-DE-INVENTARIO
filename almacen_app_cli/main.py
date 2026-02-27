@@ -164,3 +164,17 @@ def main():
             else:
                 for p in productos:
                     print(p)
+
+        # -------- SALIR --------
+        elif opcion == 7:
+            print("Saliendo...")
+            break
+
+        # -------- OPCIÓN INVÁLIDA --------
+        else:
+            print("Opción inválida.")
+
+
+# Se ejecuta solo si el archivo se corre directamente
+if __name__ == "__main__":
+    main()
