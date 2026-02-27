@@ -31,3 +31,22 @@ class Inventario:
 
         # Al iniciar el programa se cargan los datos guardados
         self.cargar_desde_archivo()
+
+    # -------- MÉTODOS INTERNOS --------
+    # Busca el índice de un producto por ID
+    def _buscar_indice_por_id(self, producto_id: int) -> int:
+        for i, producto in enumerate(self.__productos):
+            if producto.get_id() == producto_id:
+                return i
+        return -1
+
+    # Asegura que la carpeta y archivo existan antes de leer/escribir
+    def asegurar_archivo(self) -> None:
+        carpeta = os.path.dirname(self.ruta_archivo)
+
+        if not os.path.exists(carpeta):
+            os.makedirs(carpeta, exist_ok=True)
+
+        if not os.path.exists(self.ruta_archivo):
+            with open(self.ruta_archivo, "w", encoding="utf-8"):
+                pass
