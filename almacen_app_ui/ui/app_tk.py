@@ -28,3 +28,29 @@ class AppTk:
         self.root = tk.Tk()
         self.root.title("Inventario (Tkinter)")
         self.root.geometry("920x560")
+
+        # =====================
+        # FORMULARIO (ENTRADAS)
+        # =====================
+        frm = ttk.LabelFrame(self.root, text="Formulario Producto")
+        frm.pack(fill="x", padx=10, pady=10)
+
+        # Variables Tkinter (se conectan a los Entry)
+        self.var_id = tk.StringVar()
+        self.var_nombre = tk.StringVar()
+        self.var_cantidad = tk.StringVar()
+        self.var_precio = tk.StringVar()
+
+        # Fila 0
+        ttk.Label(frm, text="ID").grid(row=0, column=0, padx=6, pady=6, sticky="w")
+        ttk.Entry(frm, textvariable=self.var_id, width=15).grid(row=0, column=1, padx=6, pady=6)
+
+        ttk.Label(frm, text="Nombre").grid(row=0, column=2, padx=6, pady=6, sticky="w")
+        ttk.Entry(frm, textvariable=self.var_nombre, width=30).grid(row=0, column=3, padx=6, pady=6)
+
+        # Fila 1
+        ttk.Label(frm, text="Cantidad").grid(row=1, column=0, padx=6, pady=6, sticky="w")
+        ttk.Entry(frm, textvariable=self.var_cantidad, width=15).grid(row=1, column=1, padx=6, pady=6)
+
+        ttk.Label(frm, text="Precio").grid(row=1, column=2, padx=6, pady=6, sticky="w")
+        ttk.Entry(frm, textvariable=self.var_precio, width=30).grid(row=1, column=3, padx=6, pady=6)
