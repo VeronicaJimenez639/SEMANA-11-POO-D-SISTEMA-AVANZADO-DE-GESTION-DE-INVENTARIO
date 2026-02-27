@@ -206,3 +206,23 @@ class AppTk:
             messagebox.showinfo("OK", msg)
         else:
             messagebox.showwarning("Atención", msg)
+
+    def on_eliminar(self):
+        """Evento botón Eliminar."""
+        try:
+            id_p = int(self.var_id.get().strip())
+        except Exception:
+            messagebox.showwarning("Atención", "Selecciona un producto (ID) para eliminar.")
+            return
+
+        # Confirmación antes de borrar
+        if not messagebox.askyesno("Confirmar", f"¿Eliminar el producto ID {id_p}?"):
+            return
+
+        ok, msg = self.servicio.eliminar_producto_gui(id_p)
+        if ok:
+            self.refrescar_tabla()
+            self.on_limpiar()
+            messagebox.showinfo("OK", msg)
+        else:
+            messagebox.showwarning("Atención", msg)
