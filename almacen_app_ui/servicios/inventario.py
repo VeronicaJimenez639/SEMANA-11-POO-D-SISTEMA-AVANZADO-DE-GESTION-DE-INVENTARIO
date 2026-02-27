@@ -17,3 +17,19 @@ class Inventario:
 
         self.ruta_archivo = ruta_archivo
         self.cargar_desde_archivo()
+
+    # -------- INTERNOS --------
+    def _buscar_indice_por_id(self, producto_id: int) -> int:
+        for i, producto in enumerate(self.__productos):
+            if producto.get_id() == producto_id:
+                return i
+        return -1
+
+    def asegurar_archivo(self) -> None:
+        carpeta = os.path.dirname(self.ruta_archivo)
+        if not os.path.exists(carpeta):
+            os.makedirs(carpeta, exist_ok=True)
+
+        if not os.path.exists(self.ruta_archivo):
+            with open(self.ruta_archivo, "w", encoding="utf-8"):
+                pass
