@@ -111,6 +111,13 @@ class AppTk:
         self.root.protocol("WM_DELETE_WINDOW", self.on_cerrar)
 
     # =====================
+    # CICLO DE VIDA
+    # =====================
+    def run(self):
+        """Inicia el loop de Tkinter (la app se queda escuchando eventos)."""
+        self.root.mainloop()
+
+    # =====================
     # UTILIDADES
     # =====================
     def _pintar(self, productos):
