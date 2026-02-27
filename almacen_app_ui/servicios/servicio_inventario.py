@@ -64,3 +64,7 @@ class ServicioInventario:
             return (True, "Producto eliminado.") if ok else (False, "No existe producto con ese ID.")
         except Exception as e:
             return False, f"Error: {e}"
+        
+    def guardar_en_archivo(self):
+        """Fuerza el guardado en el archivo (útil para botón Guardar o al cerrar)."""
+        self.inventario.guardar_en_archivo()
