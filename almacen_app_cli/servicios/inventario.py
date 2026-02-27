@@ -50,3 +50,27 @@ class Inventario:
         if not os.path.exists(self.ruta_archivo):
             with open(self.ruta_archivo, "w", encoding="utf-8"):
                 pass
+
+    # -------- PERSISTENCIA --------
+    # Carga los productos desde el archivo
+    def cargar_desde_archivo(self) -> None:
+        try:
+            self.asegurar_archivo()
+            self.__productos.clear()
+
+            with open(self.ruta_archivo, "r", encoding="utf-8") as f:
+                for linea in f:
+                    linea = linea.strip()
+
+                    if not linea:
+                        continue
+
+                    try:
+                        producto = Producto.from_linea(linea)
+                        self.__productos.append(producto)
+                    except Exception:
+                        # Si una línea está dañada, se ignora
+                        continue
+
+        except Exception as e:
+            print(f"Error al cargar archivo: {e}")
