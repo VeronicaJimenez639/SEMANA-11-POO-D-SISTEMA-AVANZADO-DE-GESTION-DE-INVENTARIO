@@ -51,3 +51,12 @@ def leer_float(mensaje: str, minimo=None) -> float:
 
         except ValueError:
             print("Ingresa un número decimal válido.")
+
+# Lee texto y evita cadenas vacías
+def leer_texto(mensaje: str) -> str:
+    """Lee un texto no vacío desde consola."""
+    while True:
+        texto = input(mensaje).strip()
+        if texto:
+            return texto
+        print("El texto no puede estar vacío.")
