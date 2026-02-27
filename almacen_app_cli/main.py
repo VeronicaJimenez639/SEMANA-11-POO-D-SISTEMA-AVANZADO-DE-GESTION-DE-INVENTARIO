@@ -60,3 +60,21 @@ def leer_texto(mensaje: str) -> str:
         if texto:
             return texto
         print("El texto no puede estar vacío.")
+
+# -----------------------------
+# MENÚ PRINCIPAL
+# -----------------------------
+
+# Imprime las opciones disponibles para el usuario
+def mostrar_menu():
+    """Imprime el menú principal del sistema."""
+    print("\n" + "=" * 40)
+    print("ALMACÉN APP - INVENTARIO")
+    print("=" * 40)
+    print("1) Añadir producto")
+    print("2) Eliminar producto")
+    print("3) Actualizar producto")
+    print("4) Buscar producto por ID")
+    print("5) Buscar producto por nombre")
+    print("6) Listar inventario")
+    print("7) Salir")
