@@ -226,3 +226,13 @@ class AppTk:
             messagebox.showinfo("OK", msg)
         else:
             messagebox.showwarning("Atención", msg)
+
+    def on_guardar(self):
+        """Evento botón Guardar."""
+        self.servicio.guardar_en_archivo()
+        messagebox.showinfo("Guardado", "Cambios guardados en el archivo.")
+
+    def on_cerrar(self):
+        """Al cerrar ventana: guarda y termina la app."""
+        self.servicio.guardar_en_archivo()
+        self.root.destroy()
