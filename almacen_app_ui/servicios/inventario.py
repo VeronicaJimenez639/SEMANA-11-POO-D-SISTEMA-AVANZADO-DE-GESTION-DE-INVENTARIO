@@ -95,3 +95,14 @@ class Inventario:
 
         self.guardar_en_archivo()
         return True
+    
+    def buscar_por_id(self, producto_id: int) -> Optional[Producto]:
+        indice = self._buscar_indice_por_id(producto_id)
+        return None if indice == -1 else self.__productos[indice]
+
+    def buscar_por_nombre(self, texto: str) -> list[Producto]:
+        texto = texto.strip().lower()
+        return [p for p in self.__productos if texto in p.get_nombre().lower()]
+
+    def listar_productos(self) -> list[Producto]:
+        return self.__productos.copy()
