@@ -131,3 +131,27 @@ class AppTk:
     def refrescar_tabla(self):
         """Muestra todos los productos."""
         self._pintar(self.servicio.productos)
+
+    def leer_formulario(self):
+        """Lee y valida datos del formulario.
+
+        - Convierte ID, cantidad y precio a int/float.
+        - Valida reglas básicas antes de enviar al servicio.
+        """
+        try:
+            id_p = int(self.var_id.get().strip())
+            nombre = self.var_nombre.get().strip()
+            cantidad = int(self.var_cantidad.get().strip())
+            precio = float(self.var_precio.get().strip())
+
+            if not nombre:
+                raise ValueError("Nombre no puede estar vacío")
+            if cantidad < 0:
+                raise ValueError("Cantidad debe ser >= 0")
+            if precio < 0:
+                raise ValueError("Precio debe ser >= 0")
+
+            return id_p, nombre, cantidad, precio
+        except Exception as e:
+            messagebox.showerror("Datos inválidos", f"Revisa el formulario.\nDetalle: {e}")
+            return None
