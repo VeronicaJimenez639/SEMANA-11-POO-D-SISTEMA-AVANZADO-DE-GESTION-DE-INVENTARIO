@@ -120,3 +120,10 @@ def main():
             except ValueError as e:
                 # Captura errores de validación del modelo
                 print(f"Error: {e}")
+
+        # -------- ELIMINAR PRODUCTO --------
+        elif opcion == 2:
+            if inventario.eliminar_producto(leer_int("ID: ", minimo=1)):
+                print("Producto eliminado.")
+            else:
+                print("No existe producto con ese ID.")
