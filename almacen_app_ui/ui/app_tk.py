@@ -78,3 +78,25 @@ class AppTk:
         ttk.Button(btns, text="Eliminar", command=self.on_eliminar).pack(side="left", padx=5)
         ttk.Button(btns, text="Limpiar", command=self.on_limpiar).pack(side="left", padx=5)
         ttk.Button(btns, text="Guardar", command=self.on_guardar).pack(side="left", padx=5)
+
+        # =====================
+        # TABLA (TREEVIEW)
+        # =====================
+        tabla_frame = ttk.LabelFrame(self.root, text="Listado")
+        tabla_frame.pack(fill="both", expand=True, padx=10, pady=10)
+
+        # Columnas que se mostrarán
+        cols = ("id", "nombre", "cantidad", "precio")
+        self.tree = ttk.Treeview(tabla_frame, columns=cols, show="headings", height=14)
+
+        self.tree.heading("id", text="ID")
+        self.tree.heading("nombre", text="Nombre")
+        self.tree.heading("cantidad", text="Cantidad")
+        self.tree.heading("precio", text="Precio")
+
+        self.tree.column("id", width=80, anchor="center")
+        self.tree.column("nombre", width=360)
+        self.tree.column("cantidad", width=120, anchor="center")
+        self.tree.column("precio", width=140, anchor="e")
+
+        self.tree.pack(fill="both", expand=True, padx=8, pady=8)
