@@ -78,3 +78,24 @@ def mostrar_menu():
     print("5) Buscar producto por nombre")
     print("6) Listar inventario")
     print("7) Salir")
+
+# -----------------------------
+# FUNCIÓN PRINCIPAL
+# -----------------------------
+
+def main():
+    """
+    Punto de entrada del programa.
+
+    - Crea una instancia de Inventario.
+    - Ejecuta un bucle infinito hasta que el usuario decida salir.
+    - Según la opción elegida, llama al método correspondiente.
+    """
+
+    # Se crea el inventario (esto carga automáticamente los datos del archivo)
+    inventario = Inventario()
+
+    # Bucle principal del sistema
+    while True:
+        mostrar_menu()
+        opcion = leer_int("Elige opción: ", minimo=1)
